@@ -1,0 +1,55 @@
+employee_table<-data.frame(employee_id=c(1,2,3,4),
+                           employee_name=c("a","b","c","d"),
+                           employee_age=c(23,34,45,27),
+                           employee_salary=c(28000,44000,36000,34000),
+                           employee_experience=c(3,4,4,5),
+                           employee_ratings=c(4.4,46,4.6,4.9),
+                           employee_dept=c("HR","IT","IT","CSE"))
+print(employee_table)
+
+print("extracting rows and columns:")
+result<-employee_table[1:2,]
+result2<-employee_table[1:4]
+print(result)
+print(result2)
+
+
+print(employee_table[3:5,2:4])
+
+employee_table[nrow(employee_table)+1,]<-c(5,"e",34,34000,4,4.5,"it")
+print(employee_table)
+employeenew<-data.frame(employee_id=c(6,7),
+                       employee_name=c("f","g"),
+                       employee_age=c(23,34),
+                       employee_salary=c(36000,34000),
+                       employee_experience=c(3,5),
+                       employee_ratings=c(4.6,4.9),
+                       employee_dept=c("IT","CSE")
+                       )
+employee_table<-rbind(employee_table,employeenew)
+print(employee_table)
+                      
+newcolumn<-c(1,2,3,4,5,6,7)
+employee_table$newcolumn<-newcolumn
+print(employee_table)
+
+employee_table<-cbind(employee_table,newcolumn)
+print(employee_table)
+
+
+print("creating four vectors:")
+id=c(101,102,103)
+name=c("gg","ff","kk")
+salary=c(25000,50000,45000)
+ratings=c(4.5,4.5,3,9,4,2)
+print("four vectors are:")
+print(id)
+print(name)
+print(salary)
+print(ratings)
+customertable=data.frame(id,name,salary,ratings)
+print(customertable)
+
+
+print("extracting columns by using column names:")
+print(subset(employee_table,select=c("employee_id","employee_name")))
